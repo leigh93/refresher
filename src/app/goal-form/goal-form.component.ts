@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Goal } from '../goal';
+import { resetFakeAsyncZone } from '@angular/core/testing';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-goal-form',
@@ -13,8 +15,9 @@ export class GoalFormComponent implements OnInit {
     
   constructor() { }
 
-    submitGoal(){
+    submitGoal(goalForm:NgForm){
         this.addGoal.emit(this.newGoal);
+        
     }
 
   ngOnInit() {
